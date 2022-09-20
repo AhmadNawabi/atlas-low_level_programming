@@ -1,4 +1,4 @@
-/**
+/*
  * main - entry point
  *
  * Description: Prints Holberton with _putchar
@@ -15,7 +15,7 @@ int main(void)
 	while (i <= 9)
 	{
 		c = s[i];
-		_putchar(c);
+	       	_putchar(c);
 		i++;
 	}
 	return (0);

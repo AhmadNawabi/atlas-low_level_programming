@@ -2,7 +2,7 @@
 #define MAIN_H
 
 #include <stdio.h>
-#include <tdlib.h>
+#include <stdlib.h>
 
 int _putchar(char c);
 void print_alphabet(void);

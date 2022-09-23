@@ -1,28 +1,24 @@
-#include "main.h"
-
-/**
- * more_numbers - prints 01234567891011121314\n x10
- *
- * Return: void
+/*
+ * File: 5-more_numbers.c
+ * Auth: Brennan D Baraban
  */
 
-
+#include "main.h"
+/**
+ * more_numbers - Prints the number 0-14 ten times.
+ */
 void more_numbers(void)
 {
-	char a, b, c, i;
+	int num, count;
 
-	for (i = 0; i < 10; i++)
+	for (count = 0; count <= 9; count++)
 	{
-		for (c = 0; c <= 14; c++)
+		for (num = 0; num <= 14; num++)
 		{
-			if (c < 10)
-				b = c;
-			else
-			{
-				a = c / 10; b = c % 10;
-				putchar('0' + a);
-			}
-			putchar('0' + b);
+			if 
+				(num > 9)
+					putchar((num / 10) + '0');
+			putchar((num % 10) + '0');
 		}
 		putchar('\n');
 	}

@@ -1,19 +1,18 @@
-#include "string.h"
+/*
+ * File: 3-puts.c
+ * Auth: Brennan D Baraban
+ */
+
+#include "main.h"
 
 /**
- * _puts - prints a string in stdout
- * @str: string to print
- *
- * Return: void
+ * _puts - Prints a string to stdout.
+ * @str: The string to be printed.
  */
 void _puts(char *str)
 {
-	int i = 0;
+	while (*str)
+		putchar(*str++);
 
-	while(*(str + i));
-	{
-		putchar(*(str + i));
-		i++;
-	}
 	putchar('\n');
 }

@@ -3,15 +3,15 @@
  * Auth: Brennan D Baraban
  */
 
-#include "main.h"
+#include "string.h"
 
 /**
  * print_rev - Prints a string in reverse.
  * @s: The string to be printed.
  */
 void print_rev(char *s)
-{
-	int len = 0, index;
+{i
+	int len = 0, index = 0;
 
 	while (s[index++])
 		len++;

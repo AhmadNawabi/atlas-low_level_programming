@@ -10,7 +10,7 @@
  * @s: The string to be printed.
  */
 void print_rev(char *s)
-{i
+{
 	int len = 0, index = 0;
 
 	while (s[index++])

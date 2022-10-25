@@ -1,3 +1,139 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "3-calc.h"
+
+/**
+ * main - performs simple operations
+ * @argc: number of arguments passed
+ * @argv: array of pointers to arguments
+ *
+ * Return: always 0
+ */
+int main(int argc, char *argv[])
+{
+	int a, b, c;
+	int (*f)(int, int);
+
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
+	f = get_op_func(argv[2]);
+	if (f == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
+	c = f(a, b);
+	printf("%d\n", c);
+	return (0);
+}
+#include "3-calc.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * op_add - adds a and b
+ * @a: first number
+ * @b: second number
+ *
+ * Return: sum of a and b
+ */
+int op_add(int a, int b)
+{
+	return (a + b);
+}
+
+/**
+ * op_sub - subtracts b from a
+ * @a: first number
+ * @b: second number
+ *
+ * Return: difference of a and b
+ */
+int op_sub(int a, int b)
+{
+	return (a - b);
+}
+
+/**
+ * op_mul - multiplies a and b
+ * @a: first number
+ * @b: second number
+ *
+ * Return: multiplication of a and b
+ */
+int op_mul(int a, int b)
+{
+	return (a * b);
+}
+
+/**
+ * op_div - divides a by b
+ * @a: first number
+ * @b: second number
+ *
+ * Return: integer division of a by b
+ */
+int op_div(int a, int b)
+{
+	if (b == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	return (a / b);
+}
+
+/**
+ * op_mod - find the remainder of the division of a by b
+ * @a: first number
+ * @b: second number
+ *
+ * Return: remainder of the division of a by b
+ */
+int op_mod(int a, int b)
+{
+	if (b == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	return (a % b);
+}
+#include "3-calc.h"
+#include <string.h>
+
+/**
+ * get_op_func - selects the correct operation toperform
+ * @s: operation to perform
+ *
+ * Return: pointer to the correct function
+ */
+int (*get_op_func(char *s))(int, int)
+{
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}
+	};
+	int i;
+
+	i = 0;
+	while (ops[i].op != NULL)
+	{
+		if (strcmp(s, ops[i].op) == 0)
+			break;
+		i++;
+	}
+	return (ops[i].f);
+}
 #ifndef _CALC_H_
 #define _CALC_H_
 

@@ -1,11 +1,33 @@
-#ifndef _FUNCTION_POINTERS_H_
-#define _FUNCTION_POINTERS_H_
+#include <stdio.h>
+#include <stdlib.h>
+#include "3-calc.h"
 
-#include <stddef.h>
+/**
+ * main - performs simple operations
+ * @argc: number of arguments passed
+ * @argv: array of pointers to arguments
+ *
+ * Return: always 0
+ */
+int main(int argc, char *argv[])
+{
+	int a, b, c;
+	int (*f)(int, int);
 
-int _putchar(char);
-void print_name(char *name, void (*f)(char *));
-void array_iterator(int *array, size_t size, void (*action)(int));
-int int_index(int *array, int size, int (*cmp)(int));
-
-#endif /* _FUNCTION_POINTERS_H_ */
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
+	f = get_op_func(argv[2]);
+	if (f == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
+	c = f(a, b);
+	printf("%d\n", c);
+	return (0);
+}

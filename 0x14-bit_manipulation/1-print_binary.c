@@ -16,7 +16,6 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	divide(n);
 }
 
 /**

@@ -1,13 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "holberton.h"
+#include "main.h"
 
-/**
-  * binary_to_uint - Converts a binary number to an unsigned int
-  * @b: The binary string to converts
-  *
-  * Return: The positive number converted from a binary
-  */
+
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int len = 0, count = 0, sum = 0;
@@ -30,12 +25,7 @@ unsigned int binary_to_uint(const char *b)
 	return (sum);
 }
 
-/**
-  * _strlen - Returns the length of a string
-  * @s: String to count
-  *
-  * Return: String length
-  */
+
 int _strlen(const char *s)
 {
 	int c = 0;
